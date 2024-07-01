@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web crawling에 필요한 html, css</title>
+</head>
+<body>
+    <!-- body HTML 문서에 오직 1개 존재하는 본문 -->
+    <!-- HTML : ml 약속된 태그가 존재한다. --> 
+    <h1>제목태그(h1은 오직 1개 존재하는 대제목)</h1>
+    <a href="https://www.naver.com">하이퍼 텍스트(링크)</a>
+    <!-- href, src, class, id, name, style... 태그에는 약속된 속성이 존재한다. -->
+
+    <!-- ul>(li{$$})*5 : 번호를 자동으로 매긴다 -->
+    <style>
+        /* CSS 선택자 
+            . 클래스 선택자 : red 클래스 속성을 가진 모든 태그에 스타일 적용
+            tagName 요소(태그) 선택자 : 해당하는 모든 태그를 선택
+
+            * 선택자를 구체적으로 표시할 수 있다.
+            ul>li.red
+            li.red
+            .red
+        */
+        li.red{color: red;}  
+        li{text-decoration: underline;}
+
+        form input {
+            border-color: red;
+        }
+
+        form>input{
+            border-color: blue;
+        }
+        
+        li{text-decoration: underline;}
+        #selectorList>li{
+            text-decoration: none;
+            color: darkgray;
+        }
+        #selectorList>li:nth-child(3){
+            color: aqua;
+        }
+
+    </style>
+    <ul>
+        <li style="color: aqua;">01</li>
+        <li class="red">02</li>
+        <li>03</li>
+        <li class="red">04</li>
+        <li>05</li>
+    </ul>
+
+    <p class="red">안녕하세요!</p>
+    <h2>인터넷과 웹</h2>
+    <p>인터넷 -> 통신망, 웹 -> 통신망에서 할 수 있는 서비스(email, )</p>
+    <h2>http 통신</h2>
+    <p>HTml Transfer Protocal html 문서를 통신하는 규칙</p>
+    <h2>HTML</h2>
+    <p>HyperText(Link) Markup Language</p>
+    <p>
+        - xml: 확장가능한 마크업 문서의 장점(텍스트 간의 구분, 종속관계 => 그래픽으로 표현하기 좋다(DOM Tree))을 이용, 
+        link를 이용해서 다른 서버 또는 같은 서버 내의 다른 리소스를 참조가능(HyperText)
+        텍스트를 전달하기 위해 만들어졌기 때문에 text는 말단 노드이다.
+    </p>
+    <p>
+        - 브라우저: 정보전달을 한다 -> 그래픽을 그린다 -> 정보가 구체적으로 표현되기 위해 구조가 필요하다.
+        - html은 그래픽으로 표현하기 좋다.
+        - 크게 블럭O/블럭X 인지 구분한다.
+    </p>
+    <h2>CSS Cascading Style Sheets</h2>
+    <p>
+        - cascading: 계단식으로 위에서 아래로 쏟아지는 -> 스타일 적용에 우선순위가 존재한다
+        - html을 꾸며주는 양식 또는 문서
+    </p>
+    <h3>CSS Selector(선택자) 요소 간의 관계를 표현하는 것</h3>
+    <form action="">
+        <input type="text">
+        <div>
+            <div>
+                <input type="text">
+                <div>
+                    <input type="text">
+                    <div>
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <ul id="selectorList">
+        <li>div = div 요소 선택</li>
+        <li>div.red = class가 red인 요소 선택</li>
+        <li>#query = id가 query인 요소 선택(id는 보통 html 문서에 1개만 존재)</li>
+        <li>자손 -> form input = form 요소 안에 있는 모든 자손(자식의 자식의 ...)인 input</li>
+        <li>자식 -> form>input = form 요소의 자식 요소인 input</li>
+        <li>input[type='text'] = input인데 속성이 type이 text인것</li>
+        <li>:nth-child(n) : 몇번째 요소</li>
+        <li>div, li or .red, .blue, .color = 여러 요소를 동시에 선택</li>
+        <li>div+p = div 요소에 인접한 형제 p 요소</li>
+        <li>div~p = div 요소의 형제들 중에 p 요소</li>
+
+    </ul>
+    <h2>URL uniform resource locator 리소스의 주소</h2>
+    <p>
+        - 리소스: 인터넷에서 찾을 수 있는 자원
+        - https://comic.naver.com/webtoon/detail?titleId=827319&no=1&week=mon
+        - https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EC%95%88%EB%85%95 = 안녕 /url 인코딩(한글이라서)
+    </p>
+    <ul>
+        <li>https : http 통신으로 리소스를 요청하겠다.</li>
+        <li>comic.naver.com : (도메인) 서버의 주소 IP를 도메인으로 가림</li>
+        <li>webtoon/detail : path 리소스의 위치</li>
+        <li>?titleId=827319&no=1&week=mon : parameter / 페이지를 동적으로 만들어준다</li>
+        <li>? : parameter 시작, & : parameter 구분자, key=value</li>
+    </ul>
+
+</body>
+</html>
